@@ -8,4 +8,15 @@ import {Component} from '@angular/core';
 
 export class AppComponent {
   title = 'AngularJobApp';
+  modalVisible = false;
+
+  constructor() {}
+
+  onClose(isVisible: boolean) {
+    this.modalVisible =  isVisible;
+  }
+
+  showModal() {
+    this.modalVisible = true;
+  }
 }

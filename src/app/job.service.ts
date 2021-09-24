@@ -26,6 +26,6 @@ export class JobService {
   }
 
   public getIndividualJob(jobId: number): Observable<Job> {
-    return this.http.get<Job>(this.apiServerUrl + '/jobs' + jobId);
+    return this.http.get<Job>(this.apiServerUrl + '/jobs/' + jobId);
   }
 }

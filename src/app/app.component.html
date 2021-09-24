@@ -1,4 +1,8 @@
-<app-job-form></app-job-form>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand text-secondary-d1" href="#">AngularJobApp</a>
+  </div>
+</nav>
 <div class="page-content container">
   <div class="container px-0">
     <div class="row mt-4">
@@ -6,18 +10,28 @@
         <div class="row">
           <div class="col-12">
             <div class="text-center text-150">
-              <span class="text-default-d3">Job Table</span>
+              <span class="text-default-d3">Job Form</span>
             </div>
           </div>
         </div>
+        <app-job-form></app-job-form>
 
+        <hr/>
         <hr class="row brc-default-l1 mx-n1 mb-4"/>
 
+        <div class="col-12 col-lg-10 offset-lg-1">
+          <div class="row">
+            <div class="col-12">
+              <div class="text-center text-150">
+                <span class="text-default-d3">Job Table</span>
+              </div>
+            </div>
+          </div>
         <app-job-list></app-job-list>
 
         <hr/>
 
-        <app-job-info></app-job-info>
+<!--        <app-job-info></app-job-info>-->
       </div>
     </div>
   </div>

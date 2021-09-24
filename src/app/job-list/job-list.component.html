@@ -11,7 +11,7 @@
     <tbody class="text-95 text-secondary-d3">
     <tr *ngFor="let job of jobs">
       <td>{{job.id}}</td>
-      <td><a routerLink="/jobs/{{job.id}}">{{job.name}}</a></td>
+      <td><a routerLink="/jobs/{{job.id}}" (click)="getJobInfo(job.id)">{{job.name}}</a></td>
       <td>{{job.status}}</td>
     </tr>
     </tbody>

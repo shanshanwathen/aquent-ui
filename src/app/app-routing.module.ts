@@ -6,7 +6,7 @@ import {JobInfoComponent} from "./job-info/job-info.component";
 
 const routes: Routes = [
   {path: 'jobs', component: JobListComponent},
-  {path: 'jobs/:id', component: JobInfoComponent},
+  {path: 'jobs/:id', component: JobListComponent},
   {path: 'kafka/create-job', component: JobFormComponent},
   {path: '', redirectTo: '/jobs', pathMatch: 'full'}
 ];

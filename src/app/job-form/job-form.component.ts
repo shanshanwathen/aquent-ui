@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {Job} from "../model/job";
 import {ActivatedRoute, Router} from "@angular/router";
 import {JobService} from "../job.service";
@@ -12,6 +12,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class JobFormComponent implements OnInit {
 
   public job: Job;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -25,7 +26,7 @@ export class JobFormComponent implements OnInit {
   public onCreateJob(): void {
     this.jobService.createJob(this.job).subscribe(
       (response: number) => {
-        console.log("Job " + response + "was created.");
+        alert("Job " + response + " was created.");
         this.gotoJobList();
       },
       (error: HttpErrorResponse) => {
@@ -37,5 +38,4 @@ export class JobFormComponent implements OnInit {
   public gotoJobList() {
     this.router.navigate(['/jobs']);
   }
-
 }

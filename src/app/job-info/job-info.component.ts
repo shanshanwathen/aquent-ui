@@ -12,6 +12,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class JobInfoComponent implements OnInit {
 
   public job: Job;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -20,7 +21,6 @@ export class JobInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getJob();
   }
 
   public getJob(): void {
@@ -28,6 +28,7 @@ export class JobInfoComponent implements OnInit {
       (response: Job) => {
         console.log(response);
         this.job = response;
+        alert("Job Status: " + response.status + "\nDetails: " + response.details);
       },
       (error: HttpErrorResponse) => {
         console.log(error.message);
