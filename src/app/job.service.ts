@@ -8,21 +8,21 @@ import {environment} from "../environments/environment";
   providedIn: 'root'
 })
 export class JobService {
-  private apiServerUrl = environment.apiBaseUrl;
+  private apiServerUrl: string;
 
   constructor(private http: HttpClient) {
-
+    this.apiServerUrl = environment.apiBaseUrl;
   }
 
   public getJobs(): Observable<Job[]> {
-    return this.http.get<Job[]>(`{$this.apiSeverUrl}/jobs`);
+    return this.http.get<Job[]>(this.apiServerUrl + '/jobs');
   }
 
-  public createJob(job: Job): Observable<Job> {
-    return this.http.post<Job>(`{$this.apiSeverUrl}/kafka/create-job`, job);
+  public createJob(job: Job): Observable<number> {
+    return this.http.post<number>(this.apiServerUrl + '/kafka/create-job', job);
   }
 
-  public getIndividualJob(jobId: number): Observable<string> {
-    return this.http.get<string>(`{$this.apiSeverUrl}/jobs/${jobId}`);
+  public getIndividualJob(jobId: number): Observable<Job> {
+    return this.http.get<Job>(this.apiServerUrl + '/jobs' + jobId);
   }
 }

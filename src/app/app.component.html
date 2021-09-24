@@ -1,14 +1,80 @@
-<h1>Welcome to AngularJobApp</h1>
-<div class="content container" role="main">
-  <div class="row">
-    <div *ngFor="let job of jobs">
-      <div>{{job.name}}</div>
-      <div>{{job.status}}</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand text-secondary-d1" href="#">AngularJobApp</a>
+    <div id="navbarNav">
+      <button type="button" class="btn bgc-default-tp1" id="openModal" data-bs-toggle="modal" data-bs-target="#jobFormModal">Create Job</button>
+    </div>
+  </div>
+</nav>
+
+<div class="modal fade" id="jobFormModal" tabindex="-1" aria-labelledby="jobFormModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create A Job</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="d-flex flex-column" #createForm="ngForm" (ngSubmit)="onCreateJob(createForm)">
+          <div class="mb-3">
+            <label for="name" class="form-label">Job Name</label>
+            <input type="text" ngModel class="form-control" id="name" name="name">
+          </div>
+          <div class="mb-3">
+            <label for="details" class="form-label">Details</label>
+            <textarea name="details" ngModel class="form-control" id="details" cols="20" rows="5"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button [disabled]="createForm.invalid" type="submit" class="btn bgc-default-tp1">Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- Footer -->
+<div class="page-content container">
+  <div class="container px-0">
+    <div class="row mt-4">
+      <div class="col-12 col-lg-10 offset-lg-1">
+        <div class="row">
+          <div class="col-12">
+            <div class="text-center text-150">
+              <span class="text-default-d3">Job Table</span>
+            </div>
+          </div>
+        </div>
 
+        <hr class="row brc-default-l1 mx-n1 mb-4"/>
 
-<router-outlet></router-outlet>
+        <div class="table-responsive">
+          <table class="table table-borderless border-0 border-b-2 brc-default-l1">
+            <thead class="bg-none bgc-default-tp1">
+            <tr class="text-white">
+              <th>ID</th>
+              <th>Name</th>
+              <th>Status</th>
+            </tr>
+            </thead>
+
+            <tbody class="text-95 text-secondary-d3">
+            <tr *ngFor="let job of jobs">
+              <td>{{job.id}}</td>
+              <td>{{job.name}}</td>
+              <td>{{job.status}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr/>
+
+        <div>
+          <span class="text-secondary-d1 text-105">Thank you for your business</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
