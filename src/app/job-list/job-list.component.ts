@@ -38,7 +38,7 @@ export class JobListComponent implements OnInit {
     this.jobService.getIndividualJob(id).subscribe(
       (response: Job) => {
         console.log(response);
-        alert("Job Status: " + response.status + "\nDetails: " + response.details);
+        alert("ID: " + response.id + "\nName: " + response.name + "\nStatus: " + response.status + "\nDetails: " + response.details);
       },
       (error: HttpErrorResponse) => {
         console.log(error.message);
