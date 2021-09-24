@@ -6,12 +6,14 @@ import {HttpClientModule} from "@angular/common/http";
 import {RouterModule, Routes} from "@angular/router";
 import { JobFormComponent } from './job-form/job-form.component';
 import { JobListComponent } from './job-list/job-list.component';
+import { JobInfoComponent } from './job-info/job-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     JobFormComponent,
-    JobListComponent
+    JobListComponent,
+    JobInfoComponent
   ],
   imports: [
     BrowserModule,

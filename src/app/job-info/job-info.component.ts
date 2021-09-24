@@ -5,11 +5,11 @@ import {JobService} from "../job.service";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
-  selector: 'app-job-form',
-  templateUrl: './job-form.component.html',
-  styleUrls: ['./job-form.component.css']
+  selector: 'app-job-info',
+  templateUrl: './job-info.component.html',
+  styleUrls: ['./job-info.component.css']
 })
-export class JobFormComponent implements OnInit {
+export class JobInfoComponent implements OnInit {
 
   public job: Job;
   constructor(
@@ -20,22 +20,18 @@ export class JobFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getJob();
   }
 
-  public onCreateJob(): void {
-    this.jobService.createJob(this.job).subscribe(
-      (response: number) => {
-        console.log("Job " + response + "was created.");
-        this.gotoJobList();
+  public getJob(): void {
+    this.jobService.getIndividualJob(this.job.id).subscribe(
+      (response: Job) => {
+        console.log(response);
+        this.job = response;
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
+        console.log(error.message);
       }
-    );
+    )
   }
-
-  public gotoJobList() {
-    this.router.navigate(['/jobs']);
-  }
-
 }
