@@ -23,8 +23,8 @@ export class JobFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public onCreateJob(): void {
-    this.jobService.createJob(this.job).subscribe(
+  public onSubmit(): void {
+    this.jobService.saveJob(this.job).subscribe(
       (response: number) => {
         alert("Job " + response + " was created.");
         this.gotoJobList();

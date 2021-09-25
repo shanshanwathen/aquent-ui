@@ -20,8 +20,7 @@ export class JobService {
     return this.http.get<Job[]>(this.apiServerUrl + '/jobs');
   }
 
-  public createJob(job: Job): Observable<number> {
-
+  public saveJob(job: Job): Observable<number> {
     return this.http.post<number>(this.apiServerUrl + '/kafka/create-job', JSON.stringify(job), this.options);
   }
 
