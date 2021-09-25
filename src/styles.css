@@ -3,7 +3,6 @@
 @import "https://pro.fontawesome.com/releases/v5.10.0/css/all.css";
 
 
-
 body{
   color: #484b51;
 }
@@ -45,13 +44,4 @@ hr {
 
 .text-150 {
   font-size: 150%!important;
-}
-
-tbody > tr:nth-child(even) {
-  background-color: #e8f3fd;
-}
-
-tbody a {
-  color: black;
-  text-decoration: none;
 }
