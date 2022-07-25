@@ -1,0 +1,9 @@
+form {
+    max-width: 500px;
+    margin: auto;
+}
+
+.required-info {
+    color: #842029;
+    font-size: smaller;
+}

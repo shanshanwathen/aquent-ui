@@ -1,0 +1,11 @@
+.auto-margin {
+  margin: auto;
+}
+
+.card>.list-group {
+  border-bottom: none;
+}
+
+div.col-4>div:nth-child(1)>div:nth-child(3)>button:nth-child(1) {
+  margin-right: 10px;
+}

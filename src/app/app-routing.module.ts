@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {JobFormComponent} from "./job-form/job-form.component";
-import {JobListComponent} from "./job-list/job-list.component";
-import {JobInfoComponent} from "./job-info/job-info.component";
+import { ClientCreateFromComponent } from './client-create-from/client-create-from.component';
+import { ClientEditFormComponent } from './client-edit-form/client-edit-form.component';
+import { ClientInfoComponent } from './client-info/client-info.component';
+import { ClientListComponent } from './client-list/client-list.component';
+import { HomeComponent } from './home';
 
 const routes: Routes = [
-  {path: 'jobs', component: JobListComponent},
-  {path: 'jobs/:id', component: JobListComponent},
-  {path: 'kafka/create-job', component: JobFormComponent},
-  {path: '', redirectTo: '/jobs', pathMatch: 'full'}
+  { path: 'client/list', component: ClientListComponent },
+  { path: 'client/:id', component: ClientInfoComponent },
+  { path: 'client/create', component: ClientCreateFromComponent },
+  { path: 'client/edit/:id', component: ClientEditFormComponent },
+  { path: '', redirectTo: '/client/list', pathMatch: 'full' }
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+export const AppRoutingModule = RouterModule.forRoot(routes);

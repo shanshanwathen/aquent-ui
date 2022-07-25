@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="text-center text-150">
+        <span class="text-default-d3">View All Clients</span>
+      </div>
+    </div>
+  </div>
+  <div class="card-deck row">
+    <div *ngFor="let client of clients" class="col-4">
+      <div class="card m-3 p-0">
+        <div class="card-body auto-margin">
+          <h5 class="card-title">{{ client.companyName }}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item auto-margin">{{ client.websiteURI }}</li>
+          <li class="list-group-item auto-margin">{{ client.phoneNumber }}</li>
+          <li class="list-group-item auto-margin">{{ client.streetAddress }}</li>
+          <li class="list-group-item auto-margin">{{ client.city }}, {{ client.state }}</li>
+          <li class="list-group-item auto-margin">{{ client.zipCode }}</li>
+        </ul>
+        <div class="d-flex justify-content-center pb-2">
+          <button class="btn btn-info" (click)="goToClientDetial(client.id)">More</button>
+          <button type="button" class="btn btn-info" (click)="goToClientEdit(client.id)">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
